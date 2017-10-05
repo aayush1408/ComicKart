@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit</title>
+	 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	 <style type="text/css">
+	 	.footer{
+
+        		text-align: center;
+        		margin-top: 40px;
+        		padding: 10px;
+        	}
+	 </style>
+	 
+</head>
+<body>
+ <div class="container">
+ <div class="page-header">
+   <h1>Comikart</h1>
+   </div>
+  </div>
+    <nav class="navbar navbar-default">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/about">About</a></li>
+        <li><a href="#">Books</a></li>
+        <li><a href="/">View Website</a></li>
+        
+      </ul>
+     
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/signup">SignUp</a></li>
+        <li><a href="/login">Login</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<div class="container">
+  <div class="page-header">
+    <h2>Cart</h2>
+  </div>
+  <% if(cart.items) { %>
+
+
+  <div class="container">
+<table class="table table-bordered table-striped table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Item</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+     <tr>
+<% for (var i=0;i< cart.items.length;i++){ %>
+      <th scope="row"></th>
+      <td><%= cart.items[i].title %></td>
+      <td><%= cart.items[i].qty %></td>
+      <td><%= cart.items[i].price %></td>
+    </tr>
+<% } %>    
+    </tbody>
+    </table>
+    <br>
+    <h3>Total $<%= cart.total %></h3>
+
+</div>
+<% } %>
+<% if(!cart.items){ %>}
+<div class="page-header">
+<h3>No books now in cart</h3>
+</div>
+<% } %>
+<div class="container footer">
+    <div class="row">
+        <div class="col-lg-12">
+        <p>Comikart &copy; 2017 | <a href="/manage">Manage</a></p>
+        
+      </div>
+    </div>
+      
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+</html>
